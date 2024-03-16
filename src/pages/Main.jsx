@@ -71,9 +71,7 @@ export default function Home(){
                             <td className="columns">{page.annualSalary}</td>
                             <td className="columns">{page.date}</td>
                             <td className="columns">{page.specialization}</td>
-                            <div>
                             <button onClick= {() => dispatch(deletePage(page.company))}>Delete</button>
-                            </div>
                             </p>
                             )
                     )}
