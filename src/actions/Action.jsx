@@ -1,5 +1,5 @@
 export const ADD_PAGE = "ADD_PAGE";
-//export const DELETE_PAGE = "DELETE_PAGE";
+export const DELETE_PAGE = "DELETE_PAGE";
 
 export const addPage = (company, experience, location,annualSalary,date,specialization) => {
     let task = {
@@ -15,9 +15,9 @@ export const addPage = (company, experience, location,annualSalary,date,speciali
         payload: task
     };
 };
-/*export const deletePage = (phone) => {
+export const deletePage = (company) => {
     return{
         type: DELETE_PAGE,
-        payload: phone
+        payload: company
     };
-};*/
+};

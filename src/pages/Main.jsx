@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { addPage } from "../actions/Action";
+import { deletePage } from "../actions/Action";
 
 export default function Home(){
     const pages = useSelector((state) => state.pages);
@@ -37,7 +38,7 @@ export default function Home(){
     const onSave = () => {
         if (!company || !location || !experience || !annualSalary || !date || !specialization) return;
         dispatch(addPage(company,location,experience,annualSalary,date,specialization));
-        navigateTo("/");
+        //navigateTo("/");
     }
     return (
         <div className="navigation-menu">
@@ -62,13 +63,17 @@ export default function Home(){
                     </tr>
                 </table>
                 <div class="scroll">
-                    {pages?.map((pages) => (
-                        <p key={pages.company} className="person">
-                            <p>{pages.location}</p>
-                            <p>{pages.experience}</p>
-                            <p>{pages.annualSalary}</p>
-                            <p>{pages.date}</p>
-                            <p>{pages.specialization}</p>
+                    {pages?.map((page) => (
+                        <p /*key={pages.company} className="person"*/>
+                            <td className="columns">{page.company}</td>
+                            <td className="columns">{page.location}</td>
+                            <td className="columns">{page.experience}</td>
+                            <td className="columns">{page.annualSalary}</td>
+                            <td className="columns">{page.date}</td>
+                            <td className="columns">{page.specialization}</td>
+                            <div>
+                            <button onClick= {() => dispatch(deletePage(page.company))}>Delete</button>
+                            </div>
                             </p>
                             )
                     )}
