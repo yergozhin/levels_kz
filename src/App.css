@@ -71,3 +71,7 @@
   overflow-y: scroll; 
   background-color: aliceblue;
 } 
+.navigation-menu .search-container {
+  margin-bottom: 10%;
+}
+

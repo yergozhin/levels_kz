@@ -42,6 +42,12 @@ export default function Home(){
     }
     return (
         <div className="navigation-menu">
+            <div class="search-container">
+                <input type="text" placeholder="Search by company..." name="search"/>
+                <button type="submit">
+                    Submit
+                </button>
+            </div>
             <div className="table-menu">
                 <input value={company} onChange={handleCompanyChange} type="text" name="company" placeholder="Company Name" className="myInputs"/>
                 <input value={location} onChange={handleLoctionChange} type="text" name="location" placeholder="Location" className="myInputs"/>
