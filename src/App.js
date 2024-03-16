@@ -12,6 +12,9 @@ function App() {
   ])
   return (
     <div className="App">
+      <RouterProvider router={router}/>{
+        
+      }
       {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
