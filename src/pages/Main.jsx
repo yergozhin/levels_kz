@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-//import { useDispatch } from "react-redux";
-//import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-//import { addPage } from "../actions/Action";
+import { addPage } from "../actions/Action";
 
 export default function Home(){
     const pages = useSelector((state) => state.pages);
-    //const dispatch = useDispatch();
-    //const navigateTo = useNavigate();
+    const dispatch = useDispatch();
+    const navigateTo = useNavigate();
 
     const [company, setCompany] = useState("")
     const [location, setLocation] = useState("")
@@ -34,6 +34,11 @@ export default function Home(){
     const handleSpecializationChange = (event) => {
         setSpecialization(event.target.value);
     }
+    const onSave = () => {
+        if (!company || !location || !experience || !annualSalary || !date || !specialization) return;
+        dispatch(addPage(company,location,experience,annualSalary,date,specialization));
+        navigateTo("/");
+    }
     return (
         <div className="navigation-menu">
             <div className="table-menu">
@@ -43,6 +48,9 @@ export default function Home(){
                 <input value={annualSalary} onChange={handleAnnualSalaryChange} type="text" name="annualSalary" placeholder="Annual Salary" className="myInputs"/>
                 <input value={date} onChange={handleDateChange} type="text" name="date" placeholder="Date" className="myInputs"/>
                 <input value={specialization} onChange={handleSpecializationChange} type="text" name="specialization" placeholder="Specialization" className="myInputs"/>
+                <button onClick={onSave} className="pgbutton">
+                    Save
+                </button>
                 <table>
                     <tr>  
                         <td className="columns">Company</td>
