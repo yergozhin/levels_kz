@@ -40,10 +40,13 @@ export default function Home(){
         dispatch(addPage(company,location,experience,annualSalary,date,specialization));
         //navigateTo("/");
     }
+    const handleChange = (event) => {
+        
+    }
     return (
         <div className="navigation-menu">
             <div class="search-container">
-                <input type="text" placeholder="Search by company..." name="search"/>
+                <input onChange={this.handleChange} type="text" placeholder="Search by company..." name="search"/>
                 <button type="submit">
                     Submit
                 </button>
