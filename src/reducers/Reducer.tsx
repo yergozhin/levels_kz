@@ -1,4 +1,4 @@
-import { ADD_PAGE, DELETE_PAGE } from "../actions/Action";
+import { ADD_PAGE, DELETE_PAGE } from "../actions/Action.tsx";
 
 const initialState = {
     pages: [],

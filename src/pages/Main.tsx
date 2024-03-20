@@ -1,9 +1,10 @@
+import React from 'react'
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { addPage } from "../actions/Action";
-import { deletePage } from "../actions/Action";
+import { addPage } from "../actions/Action.tsx";
+import { deletePage } from "../actions/Action.tsx";
 
 export default function Home(){
     const pages = useSelector((state) => state.pages);
@@ -40,13 +41,14 @@ export default function Home(){
         dispatch(addPage(company,location,experience,annualSalary,date,specialization));
         //navigateTo("/");
     }
-    const handleChange = (event) => {
+
+    // const handleChange = (event) => {
         
-    }
+    // }
     return (
         <div className="navigation-menu">
-            <div class="search-container">
-                <input onChange={this.handleChange} type="text" placeholder="Search by company..." name="search"/>
+            <div className="search-container">
+                <input type="text" placeholder="Search by company..." name="search"/>
                 <button type="submit">
                     Submit
                 </button>
@@ -71,7 +73,7 @@ export default function Home(){
                         <td className="columns">Specialization</td>
                     </tr>
                 </table>
-                <div class="scroll">
+                <div className="scroll">
                     {pages?.map((page) => (
                         <p /*key={pages.company} className="person"*/>
                             <td className="columns">{page.company}</td>

@@ -10,6 +10,7 @@ export const addPage = (company, experience, location,annualSalary,date,speciali
         date: date,
         specialization: specialization
     }
+
     return{
         type: ADD_PAGE,
         payload: task
