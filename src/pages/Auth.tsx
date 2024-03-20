@@ -5,11 +5,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { IAuthForm } from "../types/auth.types";
 import { useMutation } from '@tanstack/react-query';
 import { authService } from '../services/auth.service.ts';
+import { useNavigate } from 'react-router-dom';
 
 export default function Auth() {
 		 const { register, handleSubmit, reset } = useForm<IAuthForm>({
 			mode: 'onChange'
 		 })
+
+		 const navigateTo = useNavigate()
 
 		 const [ isLoginForm, setIsLoginForm ] = useState(false)
 
@@ -20,6 +23,7 @@ export default function Auth() {
 				console.log('SUCCESS')
 				reset()
 				console.log('SUCCESS')
+				navigateTo('/')
 			}
 		 })
 

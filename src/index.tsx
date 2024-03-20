@@ -21,11 +21,15 @@ const queryClient = new QueryClient({
 })
 
 root.render(
+  <Provider store={store}>
+
+  
   <QueryClientProvider client={queryClient}>
         <React.StrictMode>
             <App />
         </React.StrictMode>,
   </QueryClientProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
