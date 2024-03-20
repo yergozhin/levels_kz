@@ -15,14 +15,16 @@ export default function Auth() {
 
 		 const { mutate } = useMutation({
 			mutationKey: ['auth'],
-			mutationFn: (data: IAuthForm) => authService.main(isLoginForm ? 'login' : 'register', data),
+			mutationFn: (data: IAuthForm) => authService.main(isLoginForm ? 'signin' : 'signup', data),
 			onSuccess() {
+				console.log('SUCCESS')
 				reset()
 				console.log('SUCCESS')
 			}
 		 })
 
 		 const onSubmit: SubmitHandler<IAuthForm> = data => {
+			console.log(data)
 			mutate(data)
 		 }
 
@@ -31,7 +33,14 @@ export default function Auth() {
 				<form className='w-1/4 m-auto shadow bg-slate-500 rounded-xl p-layout' 
 				onSubmit={handleSubmit(onSubmit)}>
 					<div className='flex items-center gap-5 justify-center'>
-adaddas
+						<input {...register('email', {
+							required: 'Email is required!'
+						})} type="text" placeholder='email' />
+						<input {...register('password', {
+							required: 'Password is required!'
+						})} type="text" placeholder='password' />
+						<button onClick={() => setIsLoginForm(true)}>Login</button>
+						<button onClick={() => setIsLoginForm(false)}>Register</button>
 					</div>
 				</form>
 				Hello Auth page

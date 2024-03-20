@@ -6,13 +6,16 @@ import { authService } from '../services/auth.service.ts'
 const options: CreateAxiosDefaults = {
 	baseURL: 'https://onelab-levels-api.vercel.app/api',
 	headers: {
-		'Content-Type': 'application/json'
+		'Content-Type': 'application/json',
+		'Access-Control-Allow-Origin' : '*',
+  'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+
 	},
-	withCredentials: true
+	withCredentials: false,
 }
 
 
-const axiosClassic = axios.create(options)
+const axiosDefault = axios.create(options)
 const axiosWithAuth = axios.create(options)
 
 axiosWithAuth.interceptors.request.use(config => {
@@ -46,4 +49,4 @@ axiosWithAuth.interceptors.response.use(config => config,
 	)
 
 
-export { axiosClassic, axiosWithAuth }
+export { axiosDefault, axiosWithAuth }
