@@ -9,12 +9,16 @@ export const authService = {
 			`/auth/${type}`,
 			data
 		)
-		console.log('I AM HERE', response.data)
+		if (type === 'signup') {
+			console.log('There was a successful signup of a user!', response.data)
+		}
+		if (type === 'signin') {
+			console.log('There was a successful signin of a user!')
+		}
 		console.log('your token is: ', response.data.token)
 
 		if (response.data.token) saveTokenStorage(response.data.token)
 
-		console.log(getAccessToken())
 		return response
 	},
 
