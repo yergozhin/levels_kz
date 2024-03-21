@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Main from './pages/Edit.tsx';
-import Auth from './pages/SigninPage.tsx';
+import MainPage from './pages/MainPage.tsx';
 import SignupPage from './pages/SignupPage.tsx';
 import SigninPage from './pages/SigninPage.tsx';
+import EditPage from './pages/EditPage.tsx';
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +22,11 @@ function App() {
     },
     {
       path: "/home",
-      element: <Main/>
+      element: <MainPage/>
+    },
+    {
+      path: "/edit",
+      element: <EditPage/>
     },
   ])
   return (

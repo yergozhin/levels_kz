@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { ADD_PAGE, DELETE_PAGE } from "../actions/Action.tsx";
 
 const initialState = {
